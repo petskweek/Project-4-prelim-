@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 4</title>
+    <style>
+        body {
+      background-color: #4d4a4a8f;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    
+    #time {
+      font-size: 48px;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      background-color: black;
+    }
+    </style>
+</head>
+<body>
+    <span id="time"></span>
+</body>
+
+
+<script>
+    function clock() {
+        const date = new Date();
+        const hour = date.getHours().toString().padStart(2, "0");
+        const min = date.getMinutes().toString().padStart(2, "0");
+        const sec = date.getSeconds().toString().padStart(2, "0");
+
+        document.getElementById("time").innerHTML = `${hour}:${min}:${sec}`;
+
+        console.log(date, hour, min, sec);
+        
+        if (hour === '21' && min === '51') {
+            clearInterval(intervalId);
+            alert("Time naka gaw!");
+        }
+    }
+    
+    const intervalId = setInterval(clock, 1000);
+</script>
+</html>
